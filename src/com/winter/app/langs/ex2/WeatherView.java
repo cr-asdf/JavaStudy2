@@ -1,5 +1,7 @@
 package com.winter.app.langs.ex2;
 
+import java.util.ArrayList;
+
 public class WeatherView {
 	
 	private void view() {
@@ -19,14 +21,14 @@ public class WeatherView {
 		
 	}
 	
-	public void view(WeatherDTO [] dtos) {
+	public void view(ArrayList<WeatherDTO> ar) {
 		this.view();
 		
-		for(int i=0;i<dtos.length;i++) {
-			System.out.print(dtos[i].getCity()+"\t");
-			System.out.print(dtos[i].getGion()+"\t");
-			System.out.print(dtos[i].getHumidity()+"\t");
-			System.out.println(dtos[i].getStatus());
+		for(int i=0;i<ar.size();i++) {
+			System.out.print(ar.get(i).getCity()+"\t");
+			System.out.print(ar.get(i).getGion()+"\t");
+			System.out.print(ar.get(i).getHumidity()+"\t");
+			System.out.println(ar.get(i).getStatus());
 		}
 		
 		
