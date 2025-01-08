@@ -1,6 +1,7 @@
 package com.winter.app.langs.ex2;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class WeatherInfo {
 	
@@ -12,9 +13,32 @@ public class WeatherInfo {
 		this.info.append("일산, -12, 0.56, 흐림,");
 		this.info.append("인천* 32* 0.95* 무더위,");
 		this.info.append("제주* 56* 0.02* 건조");
+		
 	}
 	
 	public WeatherDTO [] init() {
+		String data = this.info.toString().replace("*", ",");
+		StringTokenizer st = new StringTokenizer(data, ",");
+		
+		WeatherDTO [] weatherDTOs = new WeatherDTO[st.countTokens()/4];
+		//배열의 index번호로 사용
+		int idx=0;
+		
+		while(st.hasMoreTokens()) {
+			WeatherDTO weatherDTO = new WeatherDTO();
+			weatherDTO.setCity(st.nextToken().trim());
+			weatherDTO.setGion(Integer.parseInt(st.nextToken().trim()));
+			weatherDTO.setHumidity(Double.parseDouble(st.nextToken().trim()));
+			weatherDTO.setStatus(st.nextToken().trim());
+			weatherDTOs[idx]=weatherDTO;
+			idx++;
+		}
+		
+		return weatherDTOs;
+		
+	}
+	
+	public WeatherDTO [] init_old() {
 		//info의 정보를 파싱해서
 		//WeatherDTO에 담아서
 		//WeatherDTO들을 리턴
