@@ -18,6 +18,7 @@ public class TestMain {
 		ar.add(marine);
 		ar.add(marine2);
 		
+		Unit unit = marine;
 		
 		ArrayList<GroundUnit> ar2 = new ArrayList<>();
 		ar2.add(marine2);
