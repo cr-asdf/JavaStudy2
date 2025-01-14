@@ -31,21 +31,24 @@ public class DepartmentDAO {
 	}
 	
 	
-	public void getDetail() throws Exception {
+	public DepartmentDTO getDetail() throws Exception {
+		DepartmentDTO departmentDTO=null;
 		Connection connection = DBConnection.getConnection();
 		String sql="SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID=10";
 		PreparedStatement st = connection.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		if(rs.next()) {
-			System.out.println(rs.getString("DEPARTMENT_NAME"));
-		}else {
-			System.out.println("data 없다");
+			departmentDTO = new DepartmentDTO();
+			departmentDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+			departmentDTO.setDepartment_name(rs.getString("DEPARTMENT_NAME"));
+			departmentDTO.setManager_id(rs.getInt("MANAGER_ID"));
+			departmentDTO.setLocation_id(rs.getInt("LOCATION_ID"));
 		}
 		
 		
 		DBConnection.disConnect(rs, st, connection);
 		
-		
+		return departmentDTO;
 	}
 
 }
