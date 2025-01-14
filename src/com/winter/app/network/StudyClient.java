@@ -18,7 +18,7 @@ public class StudyClient {
 		//java ip+port => socket
 		//서버에 접속
 		Scanner sc = new Scanner(System.in);
-		Socket socket = new Socket("192.168.200.105", 8282);
+		Socket socket = new Socket("localhost", 8282);
 		System.out.println("서버와 접속 성공");
 		
 		OutputStream os = socket.getOutputStream();
@@ -33,8 +33,8 @@ public class StudyClient {
 			System.out.println("서버로 보낼 메세지 입력");
 			String message=sc.next();
 			
-			bw.write(message);
-			bw.write("\r\n");
+			bw.write(message+"\r\n");
+			
 			bw.flush();
 			
 			//exit
