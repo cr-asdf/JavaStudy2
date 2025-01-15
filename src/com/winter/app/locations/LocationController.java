@@ -14,6 +14,7 @@ public class LocationController {
 	public void start() throws Exception {
 		Scanner sc = new Scanner(System.in);
 		boolean check=true;
+		//123
 		
 		while(check) {
 			System.out.println("1. 지역 리스트 출력");
