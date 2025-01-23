@@ -10,7 +10,7 @@ import com.winter.app.utils.DBConnection;
 
 public class DepartmentDAO {
 	//DAO -> Data Access Object
-	//DB에 Data조회하거나, 입력, 수정, 삭제 기능
+	//DB에 Data 조회하거나, 입력, 수정, 삭제 기능
 	
 	//1. 접속 정보 선언
 	//2. Connection
@@ -23,10 +23,7 @@ public class DepartmentDAO {
 		Connection con = DBConnection.getConnection();
 		String sql="SELECT * FROM DEPARTMENTS ORDER BY 2 DESC";
 		
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		
-		
+		PreparedStatement st = con.prepareStatement(sql);		
 		
 		ResultSet rs = st.executeQuery();
 		
@@ -52,7 +49,6 @@ public class DepartmentDAO {
 		Connection connection = DBConnection.getConnection();
 		String sql="SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID=?";
 		PreparedStatement st = connection.prepareStatement(sql);
-		
 		//? 값을 세팅
 		st.setInt(1, departmentDTO2.getDepartment_id());
 		
@@ -72,4 +68,46 @@ public class DepartmentDAO {
 		return departmentDTO;
 	}
 
+	public DepartmentDTO getName()throws Exception {
+		Connection con = DBConnection.getConnection();
+		
+		String sql="SELECT DEPARTMENT_NAME"
+				+ "FROM DEPARTMENTS"
+				+ "WHERE DEPARTMENT_ID ="
+				"   ("
+				+		SELECT DEPARTMENT_ID FROM EMPLOYEES "
+				+		
+				+
+						
+						PreparedStatement st = con.prepareStatement(sql);
+		
+		
+				ResultSet = st. executeQuery();
+		if(rs.next()) {
+			DepartmentDTO departmentDTO = null;
+			if(rs.next()) {
+				departmentDTO = new DepartmentDTO();
+				departmentDTO.setDepartment_name(rs.getString("DEPARTMENT_NAME")
+			
+		}
+			DBConnection.disConnect(rs, st, con);
+			
+		
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 }
