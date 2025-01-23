@@ -1,5 +1,9 @@
 package com.winter.app.departments;
 
+import java.util.List;
+
+import com.winter.app.employees.EmployeeDTO;
+
 public class DepartmentDTO {
 	//DTO를 선언하는 규칙
 	//모든 멤버변수의 접근지정자는 private
@@ -11,6 +15,8 @@ public class DepartmentDTO {
 	private String department_name;
 	private int manager_id;
 	private int location_id;
+	//1:N 의 관계
+	private List<EmployeeDTO> employeeDTOs;
 	
 	
 	public int getDepartment_id() {
